@@ -1,9 +1,6 @@
 package com.michiel.contrology.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Client
@@ -12,13 +9,24 @@ public class Client
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @OneToOne
     private Persoonsgegevens p;
+    @OneToOne
     private Notities n;
 
     public Client(Persoonsgegevens p, Notities n)
     {
         setNotities(n);
         setPersoonsgegevens(p);
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Client { " +
+                "id=" + id + p + n +
+                '}';
     }
 
     public Persoonsgegevens getP() { return p; }
