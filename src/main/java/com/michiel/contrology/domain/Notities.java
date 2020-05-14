@@ -14,6 +14,7 @@ public class Notities
 
     private String notes;
 
+    public Notities(){}
     public Notities(String notes)
     {
         this.notes = notes;

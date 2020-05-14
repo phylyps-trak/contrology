@@ -9,8 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public
-class ClientService
+public class ClientService
 {
     @Autowired ClientRepo clientRepo;
     @Autowired NotitiesRepo notitiesRepo;

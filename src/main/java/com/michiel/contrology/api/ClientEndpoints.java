@@ -5,7 +5,7 @@ import com.michiel.contrology.domain.Client;
 import com.michiel.contrology.domain.Notities;
 import com.michiel.contrology.domain.Persoonsgegevens;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,25 +15,28 @@ public class ClientEndpoints
 {
     @Autowired
     ClientService clientService;
-
     /**
-     *      savetest
+     *      get alle clienten
      */
-
-    
-    /**
-     *      automatische opvullings endpoint
-     */
-    //@PostMapping
-    public void vulDatabase()
+    @GetMapping
+    private Iterable getAllClients()
     {
-        for( int i = 0; i<voornamen.length; i++)
+        return clientService.getClients();
+    }
+    /**
+     *      maak dummy mensen aan met dit endpoint
+     */
+    @GetMapping("/dummy")
+    public void generateDummyClients()
+    {
+        for( int i = 0; i<voornamen.length; i++ )
         {
-            //clientService.saveClient( maakDummyClient(voornamen[i], achternamen[i], notities[i]) );
-            //System.out.println( maakDummyClient(voornamen[i], achternamen[i], notities[i]) );
-            Client x = maakDummyClient("Henk", "Jansen", "kan er niks van");
-            System.out.printf(x.toString());
-            //clientService.saveClient( x );
+            clientService.saveClient(
+                    maakDummyClient(
+                            voornamen[i],
+                            achternamen[i],
+                            notities[i]
+                    ) );
         }
     }
     /**
@@ -58,7 +61,10 @@ public class ClientEndpoints
             "Trees",
             "Alexander",
             "Patricia",
-            "Sanne"
+            "Sanne",
+            "Dawa",
+            "Klaas",
+            "Kevin"
     };
     String [] achternamen = new String[] {
             "Philip",
@@ -67,7 +73,10 @@ public class ClientEndpoints
             "Elzinga",
             "Pietsersen",
             "Ferreira",
-            "Smulders"
+            "Smulders",
+            "Ometto",
+            "Penninga",
+            "van den Brand"
     };
     String [] notities = new String[] {
             "Deze persoon kan heel goed Pilates",
@@ -76,8 +85,10 @@ public class ClientEndpoints
             "pas op met onderrug",
             "is zes weken op vakantie",
             "net terug van zwangerschapsverlof",
-            "beginnnen met level 3 oefeningen"
+            "beginnnen met level 3 oefeningen",
+            "veel te gespierd voor pilates",
+            "gaat liever rennen",
+            "gaat ook liever rennen"
     };
-
 
 }
