@@ -12,6 +12,7 @@ public class Client
 
     @OneToOne
     private Persoonsgegevens p;
+
     @OneToOne
     private Notities n;
 

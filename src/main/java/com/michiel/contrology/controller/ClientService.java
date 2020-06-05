@@ -14,17 +14,23 @@ public class ClientService
     @Autowired ClientRepo clientRepo;
     @Autowired NotitiesRepo notitiesRepo;
     @Autowired PersoonsgegevensRepo persoonsgegevensRepo;
-
+// ALLES VOOR CLIENTS
     /**
      *      Bekijk alle clienten methode
      */
-    public Iterable<Client> getClients()
+    public Iterable<Client> findClients()
     {
         return clientRepo.findAll();
     }
     /**
+     *      Vind 1 Client via z'n ID
+     * @param   clientid to find
+     * @return  the Client whose ID you gave
+     */
+    public Client findClientById(long clientid) { return clientRepo.findById(clientid).get(); }
+    /**
      *      Save Client to Database
-     * @param c - client object
+     * @param c - the client object to save
      */
     public Client saveClient(Client c)
     {
@@ -33,8 +39,18 @@ public class ClientService
         return c;
     }
     /**
+     *      verwijder Client uit database by ID
+     * @param clientId
+     */
+    public void deleteClient(Long clientId)
+    {
+        clientRepo.deleteById(clientId);
+        System.out.printf("-->> Client met id" + clientId + "verwijderd");
+    }
+//ALLES VOOR NOTES & PGEGEVENS
+    /**
      *      Save Notes to Database
-     * @param n - notities object
+     * @param n - the notities object to  save
      */
     public Notities saveNotities(Notities n)
     {
@@ -52,14 +68,4 @@ public class ClientService
         System.out.println("-->> Persoonsgegevens opgeslagen in database");
         return p;
     }
-    /**
-     *      verwijder Client uit database by ID
-     * @param clientId
-     */
-    public void deleteClient(Long clientId)
-    {
-        clientRepo.deleteById(clientId);
-        System.out.printf("-->> Client met id" + clientId + "verwijderd");
-    }
-
 }

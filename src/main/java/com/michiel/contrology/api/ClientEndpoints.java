@@ -6,6 +6,7 @@ import com.michiel.contrology.domain.Notities;
 import com.michiel.contrology.domain.Persoonsgegevens;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,15 +17,23 @@ public class ClientEndpoints
     @Autowired
     ClientService clientService;
     /**
+     *      get 1 Client by ID
+     */
+    @GetMapping("/{id}")
+    private Client getClient(@PathVariable(value = "id") String clientId)
+    {
+        return clientService.findClientById(Long.parseLong(clientId));
+    }
+    /**
      *      get alle clienten
      */
     @GetMapping
     private Iterable getAllClients()
     {
-        return clientService.getClients();
+        return clientService.findClients();
     }
     /**
-     *      maak dummy mensen aan met dit endpoint
+     *      maak dummy mensen aan met dit endpoint (gebruikt onderstaande methode)
      */
     @GetMapping("/dummy")
     public void generateDummyClients()

@@ -24,11 +24,12 @@ public class Persoonsgegevens
     }
     @Override
     public String toString() {
-        return " Persoonsgegevens { " +
+        return " Persoonsgegevens { id=" +
+                id +
                 voornaam + " " + achternaam +
                 '}';
     }
-    @JsonIgnore
+    //@JsonIgnore
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
     public String getAchternaam() { return achternaam; }
