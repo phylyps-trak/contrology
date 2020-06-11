@@ -32,6 +32,8 @@ public class ClientEndpoints
     {
         return clientService.findClients();
     }
+
+    //TODO laat autogenerate data voor database ergens anders gebeuren
     /**
      *      maak dummy mensen aan met dit endpoint (gebruikt onderstaande methode)
      */
