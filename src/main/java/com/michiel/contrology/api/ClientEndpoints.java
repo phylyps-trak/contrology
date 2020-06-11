@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/clients")
 public class ClientEndpoints
+    //KIJK MAAR DIT IS DE NIEUWSTE
 {
     @Autowired
     ClientService clientService;
