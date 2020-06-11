@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/clients")
 public class ClientEndpoints
+    //ZIE MAAR ECHT HET IS DEZE
 {
     @Autowired
     ClientService clientService;
