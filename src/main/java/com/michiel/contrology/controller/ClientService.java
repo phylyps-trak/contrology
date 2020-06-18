@@ -1,7 +1,7 @@
 package com.michiel.contrology.controller;
 
 import com.michiel.contrology.domain.Client;
-import com.michiel.contrology.domain.Notities;
+import com.michiel.contrology.domain.Notitie;
 import com.michiel.contrology.domain.Persoonsgegevens;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,10 +52,10 @@ public class ClientService
      *      Save Notes to Database
      * @param n - the notities object to  save
      */
-    public Notities saveNotities(Notities n)
+    public Notitie saveNotitie(Notitie n)
     {
         notitiesRepo.save(n);
-        System.out.println("-->> notities opgeslagen in database");
+        System.out.println("-->> notitie opgeslagen in database");
         return n;
     }
     /**

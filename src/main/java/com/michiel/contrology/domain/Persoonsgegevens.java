@@ -41,6 +41,7 @@ public class Persoonsgegevens
     public void setVoornaam(String voornaam) { this.voornaam = voornaam; }
 
                 //TODO dit slaat nog helemaal nergens op, later netjes maken!!
+                @JsonIgnore
     public String setDatumIngeschreven(String datum)
     {
         try {
@@ -50,5 +51,6 @@ public class Persoonsgegevens
         }
         return "Dikke prima";
     }
+    @JsonIgnore
     public LocalDate getDatumIngeschreven() { return datumIngeschreven; }
 }
