@@ -1,6 +1,7 @@
 package com.michiel.contrology.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Client
@@ -14,20 +15,26 @@ public class Client
     private Persoonsgegevens p;
 
     @OneToOne
-    private Notities n;
-
+    private List<Notities> notitiesLijst;
+    public void addNotitie(String datum, String notitie) {
+        Notities n = new Notities(datum, notitie);
+        notitiesLijst.add(n);
+    }
     public Client(){}
-
+    public Client(Persoonsgegevens p)
+    {
+        setPersoonsgegevens(p);
+    }
     public Client(Persoonsgegevens p, Notities n)
     {
-        setNotities(n);
+        setNotities(notitiesLijst);
         setPersoonsgegevens(p);
     }
     @Override
     public String toString()
     {
         return "Client { " +
-                "id=" + id + p + n +
+                "id=" + id + p + notitiesLijst +
                 '}';
     }
     public Persoonsgegevens getP() { return p; }
@@ -35,11 +42,12 @@ public class Client
     {
         this.p = p;
     }
-    public Notities getN() { return n; }
-    public void setNotities(Notities n )
+    public List<Notities> getN() { return notitiesLijst; }
+    public void setNotities(List<Notities> n )
     {
-        this.n = n;
+        this.notitiesLijst = n;
     }
+
 public long getId() { return id; }
 
 }
