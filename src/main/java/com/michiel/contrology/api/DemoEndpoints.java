@@ -36,8 +36,8 @@ public class DemoEndpoints
         Iterable<Client> c = clientService.findClients();
         for (Client i :c)
         {
-                i.addNotitie(clientService.saveNotitie(new Notitie("01-01-2001", "testnoot") ) );
-                i.addNotitie(clientService.saveNotitie(new Notitie("02-02-2002", "testnoot2") ) );
+                i.addNotitie(clientService.saveNotitie(new Notitie("01-01-2001", "testnotitie 1") ) );
+                i.addNotitie(clientService.saveNotitie(new Notitie("02-02-2002", "testnotitie 2") ) );
         }
         System.out.println(" Demo content generated ");
         return " Demo content generated ";
@@ -62,24 +62,26 @@ public class DemoEndpoints
             "Michiel",
             "Bracha",
             "Trees",
-            "Alexander",
             "Patricia",
             "Sanne",
             "Dawa",
             "Klaas",
-            "Kevin"
+            "Kevin",
+            "Melissa",
+            "Selcan"
     };
     String [] achternamen = new String[] {
             "Philip",
             "Janssens",
-            "de Boom",
             "Elzinga",
             "Pietsersen",
             "Ferreira",
             "Smulders",
             "Ometto",
             "Penninga",
-            "van den Brand"
+            "van den Brand",
+            "Schilder",
+            "Batman"
     };
     String [] notities = new String[] {
             "Deze persoon kan heel goed Pilates",
@@ -91,7 +93,8 @@ public class DemoEndpoints
             "beginnnen met level 3 oefeningen",
             "veel te gespierd voor pilates",
             "gaat liever rennen",
-            "gaat ook liever rennen"
+            "gaat liever zwemmen",
+            "heeft gister al hard gesport"
     };
     String [] datums =  new String [] {
             "01-06-2019",
@@ -104,6 +107,7 @@ public class DemoEndpoints
             "08-01-2019",
             "09-02-2019",
             "10-03-2019",
+            "28-06-2020"
     };
 
 }
