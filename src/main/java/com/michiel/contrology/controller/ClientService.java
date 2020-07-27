@@ -23,11 +23,19 @@ public class ClientService
         return clientRepo.findAll();
     }
     /**
+     *      Vind 1 Client via z'n naam
+     * @param   clientNaam to find
+     * @return  the Client whose ID you gave
+     */
+    public Client findClientByVoornaam(String clientNaam)
+    { return clientRepo.findByVoornaam(clientNaam); }
+    /**
      *      Vind 1 Client via z'n ID
      * @param   clientid to find
      * @return  the Client whose ID you gave
      */
-    public Client findClientById(long clientid) { return clientRepo.findById(clientid).get(); }
+    public Client findClientById(long clientid)
+    { return clientRepo.findById(clientid).get(); }
     /**
      *      Save Client to Database
      * @param c - the client object to save

@@ -18,11 +18,25 @@ public class ClientEndpoints
     /**
      *      get 1 Client by ID
      */
-    @GetMapping("/{id}")
-    private Client getClient(@PathVariable(value = "id") String clientId)
+    @GetMapping("/id/{id}")
+    private Client getClientById(@PathVariable(value = "id") String clientId)
     {
         return clientService.findClientById(Long.parseLong(clientId));
     }
+
+    /**
+     * get 1 client by voornaam
+     * @param clientVoornaam
+     * @return
+     */
+
+    @GetMapping("/naam/{naam}")
+    private Client getClientByName(@PathVariable(value = "naam") String clientVoornaam)
+    {
+        return clientService.findClientByVoornaam(clientVoornaam);
+    }
+
+
     /**
      *      get alle clienten
      */

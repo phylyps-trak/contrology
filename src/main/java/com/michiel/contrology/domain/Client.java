@@ -12,6 +12,7 @@ public class Client
 
     private long id;
     private String testName;
+    private String niveau;
 
 
     @OneToOne
@@ -52,5 +53,7 @@ public class Client
     public List<Notitie> getNotitieLijst() { return notitieLijst; }
     public void setNotitieLijst(List<Notitie> notitieLijst) { this.notitieLijst = notitieLijst; }
     public long getId() { return id; }
+    public String getNiveau() { return niveau; }
+    public void setNiveau(String niveau) { this.niveau = niveau; }
 
 }
