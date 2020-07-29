@@ -12,6 +12,6 @@ public class ContrologyApplication
 	public static void main(String[] args)
 	{
 		SpringApplication.run(ContrologyApplication.class, args);
-		System.out.println("Its, its... aliiive!\n");
+		System.out.println("\nIts, its... aliiive!\n");
 	}
 }
